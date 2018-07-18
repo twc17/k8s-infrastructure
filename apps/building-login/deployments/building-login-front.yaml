@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: building-login-front
-        image: pittcontainerreg.azurecr.io/building-login:v10
+        image: pittcontainerreg.azurecr.io/building-login:5775a2e
         volumeMounts:
         - name: building-logs
           mountPath: /building_logs
