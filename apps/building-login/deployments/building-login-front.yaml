@@ -2,33 +2,34 @@ apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: building-login-front
+  namespace: default
 spec:
+  minReadySeconds: 4
   strategy:
     rollingUpdate:
       maxSurge: 1
       maxUnavailable: 1
-  minReadySeconds: 4
   template:
     metadata:
       labels:
         app: building-login-front
     spec:
       containers:
-      - name: building-login-front
-        image: pittcontainerreg.azurecr.io/building-login:5775a2e
-        volumeMounts:
-        - name: building-logs
-          mountPath: /building_logs
+      - env:
+        - name: REDIS
+          value: building-login-back
+        image: pittcontainerreg.azurecr.io/building-login:test
+        name: building-login-front
         ports:
         - containerPort: 80
         resources:
-          requests:
-            cpu: 250m
           limits:
             cpu: 500m
-        env:
-        - name: REDIS
-          value: "building-login-back"
+          requests:
+            cpu: 250m
+        volumeMounts:
+        - mountPath: /building_logs
+          name: building-logs
       volumes:
       - name: building-logs
         persistentVolumeClaim:
