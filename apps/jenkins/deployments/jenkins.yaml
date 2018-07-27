@@ -29,16 +29,3 @@ spec:
       - name: docker-sock
         hostPath:
             path: /var/run
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: jenkins
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 8080
-      targetPort: 8080
-      nodePort: 30000
-  selector:
-    app: jenkins
