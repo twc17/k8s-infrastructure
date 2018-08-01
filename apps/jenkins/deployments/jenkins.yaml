@@ -18,12 +18,12 @@ spec:
         ports:
         - containerPort: 8080
         volumeMounts:
-        - name: jenkins_home
+        - name: jenkins-home
           mountPath: /var/jenkins_home
         - name: docker-sock
           mountPath: /var/run
       volumes:
-      - name: jenkins_home
+      - name: jenkins-home
         persistentVolumeClaim:
           claimName: azurefile
       - name: docker-sock
