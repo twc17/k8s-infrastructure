@@ -14,12 +14,12 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: pittcontainerreg.azurecr.io/jenkins-docker:v3
+        image: pittcontainerreg.azurecr.io/jenkins-docker:v2
         ports:
         - containerPort: 8080
         volumeMounts:
         - name: jenkins-home
-          mountPath: /var/jenkins_home
+          mountPath: /var/jenkins-home
         - name: docker-sock
           mountPath: /var/run
       volumes:
