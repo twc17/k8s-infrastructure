@@ -13,11 +13,11 @@ spec:
         app: jenkins
     spec:
       containers:
-      - env:
-        - name: JENKINS_HOME
-          value: "/var/jenkins-home/jenkins"
       - name: jenkins
         image: pittcontainerreg.azurecr.io/jenkins-docker:v8
+        env:
+        - name: JENKINS_HOME
+          value: "/var/jenkins-home/jenkins"
         ports:
         - containerPort: 8080
         volumeMounts:
