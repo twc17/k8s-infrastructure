@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: pittcontainerreg.azurecr.io/jenkins-docker:v2
+        image: pittcontainerreg.azurecr.io/jenkins-docker:v4
         ports:
         - containerPort: 8080
         volumeMounts:
