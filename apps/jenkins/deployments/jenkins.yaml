@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: pittcontainerreg.azurecr.io/jenkins-docker:v8
+        image: pittcontainerreg.azurecr.io/jenkins-docker:v13
         env:
         - name: JENKINS_HOME
           value: "/var/jenkins-home/jenkins"
@@ -23,6 +23,7 @@ spec:
         volumeMounts:
         - name: jenkins-home
           mountPath: /var/jenkins-home
+          subPath: jenkins
         - name: docker-sock
           mountPath: /var/run
       volumes:
