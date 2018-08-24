@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hello-world-app
+  namespace: default
+spec:
+  minReadySeconds: 4
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app: hello-world-app
+    spec:
+      containers:
+        image: pittcontainerreg.azurecr.io/hello-world-app:0000
+        name: hello-world-app
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 250m
