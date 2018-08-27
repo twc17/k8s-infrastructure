@@ -15,5 +15,5 @@ spec:
         app: hello-world-app
     spec:
       containers:
-      - image: pittcontainerreg.azurecr.io/hello-world-app:298b0be
+      - image: pittcontainerreg.azurecr.io/hello-world-app:8495457
         name: hello-world-app
