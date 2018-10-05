@@ -18,7 +18,7 @@ spec:
       - env:
         - name: REDIS
           value: building-login-back
-        image: pittcontainerreg.azurecr.io/building-login:ab5152c
+        image: pittcontainerreg.azurecr.io/building-login:f1fe4d9
         name: building-login-front
         ports:
         - containerPort: 80
